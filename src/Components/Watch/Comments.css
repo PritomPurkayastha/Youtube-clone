@@ -1,0 +1,23 @@
+.commentCount{
+    display: flex;
+    margin-top: 20px;
+}
+.commentCount p{
+    font-weight: 500;
+}
+.commentSection{
+    margin-top: 20px;
+}
+.addComment{
+    display: flex;
+    align-items: center;
+}
+.addComment form input{
+    margin-left: 10px;
+    display: flex;
+    box-sizing: content-box;
+    border: none;
+    border-bottom: 1px solid #606060;
+    padding: 8px;
+    padding-right: 500px;
+}

@@ -1,0 +1,10 @@
+.videos{
+    flex: 0.8;
+    height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 40px 20px;
+    padding-bottom: 0;
+    background-color: #f9f9f9;
+    margin-left: 20px;
+}
