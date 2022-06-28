@@ -8,14 +8,13 @@ import SearchPage from "./Components/SearchPage";
 import Watch from "./Components/Watch/Watch";
 import { Routes, Route } from "react-router-dom";
 import State from "./Context/State";
-import Search from "@mui/icons-material/Search";
-
+import Explore from "./Components/ExplorePage/Explore";
+import TrendingVideos from "./Components/ExplorePage/TrandingPage/TrendingVideos";
 function App() {
-
   return (
     <State>
       <div className="App">
-        <Header/>
+        <Header />
         <Routes>
           <Route
             path="/"
@@ -24,7 +23,7 @@ function App() {
                 <Sidebar />
                 <div className="main-section">
                   {/* <Filter className="filterComponent"/> */}
-                  <Videos />
+                  <Videos/>
                 </div>
               </div>
             }
@@ -33,12 +32,28 @@ function App() {
             path="/search/:searchTerm"
             element={
               <div className="main">
-                <Sidebar/>
+                <Sidebar />
                 <SearchPage />
               </div>
             }
           />
-          <Route path="/watch" element={<Watch/>} />
+          <Route path="/watch" element={<Watch />} />
+          <Route path="/c" element={<Sidebar />} />
+          <Route
+            path="/feed/explore"
+            element={
+              <div className="main">
+                <Sidebar />
+                <Explore />
+              </div>
+            }
+          />
+          <Route path="/feed/trending" element={
+            <div className="main">
+            <Sidebar />
+            <TrendingVideos />
+          </div>
+          }/>
         </Routes>
       </div>
     </State>

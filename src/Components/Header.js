@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 import MenuIcon from "@mui/icons-material/Menu";
 import "./Header.css";
 import logo from "./YouTube-Logo.wine.svg";
@@ -12,10 +12,9 @@ import { useNavigate } from "react-router-dom";
 import setContext from "../Context/Context";
 
 function Header() {
-  const [input, setInput] = useState("");
   const navigate = useNavigate();
   
-  const { menu, setMenu } = useContext(setContext);
+  const { menu, setMenu, input, setInput, setSearchInput } = useContext(setContext);
   return (
     <div className="header">
       <div className="header-logo">
@@ -40,6 +39,7 @@ function Header() {
             onSubmit={(event) => {
               event.preventDefault();
               navigate(`/search/${input}`);
+              setSearchInput(input);
             }}
           >
             <input

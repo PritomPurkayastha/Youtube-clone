@@ -1,9 +1,7 @@
 import React, { useContext } from "react";
-import { Avatar } from "@mui/material";
-import "./VideoCard.css";
-import setContext from "../Context/Context";
 import { useNavigate } from "react-router-dom";
-
+import "./TrendingVideoCard.css";
+import setContext from "../../Context/Context";
 
 function nFormatter(num) {
   if (num >= 1000000000) {
@@ -22,8 +20,7 @@ function nFormatter(num) {
 //   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 // }
 
-
-function VideoCard({
+export default function TrendingVideoCard({
   image,
   title,
   channel,
@@ -50,12 +47,10 @@ function VideoCard({
   let like = nFormatter(likes);
   let navigate = useNavigate();
 
-
-
   return (
-    <div className="videoCard">
+    <div className="TrendingVideoCard">
       <img
-        className="thumbnail"
+        className="TrendingThumbnail"
         src={image}
         alt="Thumbnail"
         onClick={() => {
@@ -69,27 +64,14 @@ function VideoCard({
           setCommentCount(NumberOfComments);
         }}
       />
-      <div className="videoCardInfo">
-        <Avatar className="avatar" src={channelLogo} alt={channel} />
-        <div className="videoTitle" onClick={() => {
-          navigate(`/watch?v=${id}`);
-          setId(id);
-          setTitle(title.substr(0,50));
-          setViews(views);
-          setLikes(like);
-          setDescription(description);
-          setShowMore(true);
-          setCommentCount(NumberOfComments);
-        }}>
-          <h4>{title.substr(0,50)}...</h4>
-          <span className="details">{channel}</span>
-          <div className="details">
-            {view} · {time}
-          </div>
+      <div className="TrendingVideoInfo">
+        <div className="videoTitle">{title}</div>
+        <div className="channelTitle">
+            {channel}
+            <div className="videoData">{view} · {time}</div>
         </div>
+        <div className="Videodescription">{description !== undefined ? description.substr(0,200): null}...</div>
       </div>
     </div>
   );
 }
-
-export default VideoCard;

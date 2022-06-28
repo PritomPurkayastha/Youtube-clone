@@ -30,8 +30,8 @@ export default function Sidebar() {
   if (menu === false) {
     return (
       <div className="sidebar">
-        <SidebarRow Icon={HomeIcon} title="Home" />
-        <SidebarRow Icon={ExploreOutlinedIcon} title="Explore" />
+        <SidebarRow Icon={HomeIcon} title="Home" navigateTo="/"/>
+        <SidebarRow Icon={ExploreOutlinedIcon} title="Explore" navigateTo="/feed/explore"/>
         <SidebarRow Icon={SubscriptionsOutlinedIcon} title="Subcriptions" />
         <hr />
         <SidebarRow Icon={VideoLibraryOutlinedIcon} title="Library" />

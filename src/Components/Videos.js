@@ -6,18 +6,19 @@ import setContext from "../Context/Context";
 // import { ElevenMp } from "@mui/icons-material";
 
 
-let API_key = "AIzaSyBn5QE9YxTqUIZJD8d0bY4E3rlOe2ja7RQ";
+
 let video = "https://www.googleapis.com/youtube/v3/videos?";
 
 function makeRequest() {
   return fetch(
     video +
       new URLSearchParams({
-        key: API_key,
+        key: process.env.REACT_APP_API_KEY,
         part: "snippet, statistics",
         chart: "mostPopular",
-        maxResults: 10,
-        regionCode: "IN",
+        maxResults: 5,
+        // regionCode: "IN",
+        
       })
   ).then((res) => res.json()).catch((error)=>{
     console.log(error)
@@ -31,7 +32,7 @@ function Videos() {
       setData(ytData);
     });
   }, []);
-  console.log(data);
+  // console.log(data);
   // console.log("awdaw", title)
   if(data!==null){
     return (

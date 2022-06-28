@@ -74,6 +74,7 @@ span{
     padding-right: 20px;
     padding-left: 20px;
     margin-right: 25px;
+    cursor: pointer;
 }
 .description{
     margin-left: 75px;
@@ -91,7 +92,11 @@ span{
     padding-bottom: 20px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
-
+.interect{
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+}
 
 /* @media screen and (max-width: 1360px){
     .video{

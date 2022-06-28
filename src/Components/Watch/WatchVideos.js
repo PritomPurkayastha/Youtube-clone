@@ -10,11 +10,19 @@ import PlaylistAddOutlinedIcon from "@mui/icons-material/PlaylistAddOutlined";
 import MoreHorizSharpIcon from "@mui/icons-material/MoreHorizSharp";
 import { Avatar } from "@mui/material";
 import setContext from "../../Context/Context";
+import Comments from "./Comments";
+// import NotificationsNoneOutlinedIcon from "@mui/icons-material/NotificationsNoneOutlined";
+
+function numberWithCommas(x) {
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
 
 function WatchVideos() {
   let id = localStorage.getItem("id");
+  console.log("id" + id);
   let title = localStorage.getItem("title");
   let views = localStorage.getItem("views");
+  let view = numberWithCommas(views);
   let likes = localStorage.getItem("likes");
   let description = localStorage.getItem("description");
   console.log(likes);
@@ -36,7 +44,7 @@ function WatchVideos() {
 
       <div className="title">{title}</div>
       <div className="videoInfo">
-        <div className="videoData">{views} views </div>
+        <div className="videoData">{view} views </div>
         <div className="interactiveIcons">
           <ThumbUpOutlinedIcon className="icons" /> <span>{likes}</span>
           <ThumbDownOffAltOutlinedIcon className="icons" />
@@ -55,7 +63,10 @@ function WatchVideos() {
             <p className="subsCount">100 subscribers</p>
           </div>
         </div>
-        <button className="subscribe">SUBSCRIBE</button>
+        <div className="interect">
+          <button className="subscribe">SUBSCRIBE</button>
+          {/* <NotificationsNoneOutlinedIcon /> */}
+        </div>
       </div>
       <div className="description">
         {showMore ? description.substr(0, 180) : description}
@@ -81,6 +92,7 @@ function WatchVideos() {
           </button>
         )}
       </div>
+      <Comments />
     </div>
   );
 }
